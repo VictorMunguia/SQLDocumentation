@@ -1,0 +1,311 @@
+Sacar informacion con condiciones: (utilizando el where podemos condicionar un parametro para sacar la informacion)
+
+SELECT 
+    Employee_id,last_name,job_id,department_id
+FROM 
+    HR.EMPLOYEES
+WHERE
+    Department_id = 90;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Condicionales:
+
+Igual que--------
+
+SELECT 
+    First_name,Last_name,salary
+FROM 
+    HR.EMPLOYEES
+WHERE
+    salary = 9000;
+
+
+Mayor que---------
+    
+SELECT 
+    First_name,Last_name,salary
+FROM 
+    HR.EMPLOYEES
+WHERE
+    salary > 9000;
+
+
+Mayor o igual que---------
+    
+SELECT 
+    First_name,Last_name,salary
+FROM 
+    HR.EMPLOYEES
+WHERE
+    salary >= 9000;
+
+
+Diferente que--------
+    
+SELECT 
+    First_name,Last_name,salary
+FROM 
+    HR.EMPLOYEES
+WHERE
+    salary <> 9000;
+
+
+Que el valor estre entre uno y otro-----------------
+
+SELECT 
+    First_name,Last_name,salary
+FROM 
+    HR.EMPLOYEES
+WHERE
+    salary BETWEEN 6000 and 9000;
+
+
+Entre dos nombres por orden alfabetico--------------
+
+SELECT 
+    First_name,Last_name,salary
+FROM 
+    HR.EMPLOYEES
+WHERE
+    last_name BETWEEN 'King' and 'Smith';
+
+
+Imprime valores en los que cumple la condicion de la lista-----------------------
+
+ SELECT 
+    First_name,Last_name,salary
+FROM 
+    HR.EMPLOYEES
+WHERE
+    SALARY in(4000,6000,8000);
+
+Permite condicionar valores null-------------------------
+
+ SELECT 
+    First_name,Last_name,salary,COMMISSION_PCT
+FROM 
+    HR.EMPLOYEES
+WHERE
+    COMMISSION_PCT is null;
+
+Permite imprimir datos que inicien con la letra S, el comando like nos permite comparar datos similares.-------------------------------------------
+    
+SELECT
+    FIRST_NAME
+FROM 
+    HR.EMPLOYEES
+WHERE
+    FIRST_NAME like 'S%';
+
+Nos permite imrpimir datos que finalizen con la letra s, es la misma sintaxis.-------------------------------------
+
+
+SELECT
+    FIRST_NAME
+FROM 
+    HR.EMPLOYEES
+WHERE
+    FIRST_NAME like '%s';
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Esta sentencia nos permite imprimir los datos de empleados que tienen un salario mayor o igual a 100000 y que en el jobid tenga en alguna parte MAN.
+    
+SELECT 
+    employee_id,first_name,last_name,salary,job_id
+FROM
+    HR.EMPLOYEES
+WHERE
+    salary >=10000
+AND
+    job_id like '%MAN%';
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Esta sentencia nos permite imprimir los datos de empleados que tienen un salario mayor o igual a 100000 o que en el jobid tenga en alguna parte MAN.
+
+SELECT 
+    employee_id,first_name,last_name,salary,job_id
+FROM
+    HR.EMPLOYEES
+WHERE
+    salary >=10000
+OR
+    job_id like '%MAN%';
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Esta sentencia nos permite imprimir todos los datos que no estan entre 10000 y 150000
+
+SELECT 
+    employee_id,first_name,last_name,salary,job_id
+FROM
+    HR.EMPLOYEES
+WHERE
+    SALARY NOT BETWEEN 10000 AND 15000;
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Esta sentencia nos permite imprimir los valores ordenandolos de mayor a menor por la hire_date.
+
+SELECT 
+    first_name, last_name,hire_date
+FROM
+    HR.EMPLOYEES
+ORDER BY hire_date desc;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Esta sentencia imprime un valor que es igual a salario multiplicado por la commission_ptc y lo imprime en una nueva tabla llamada commission2.
+
+
+select 
+    first_name,last_name,salary,salary*commission_pct commission2
+from
+    HR.EMPLOYEES
+order by
+    commission2;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Cuando ponemos un numero despues del ORDER BY le decimos a la sentencia que ordene los datos con la columna correspondiente al numero, en este caso al poner el 3 ordera los datos con la columna 3 que es HIRE_DATE.
+
+SELECT 
+    First_name,Last_name,Hire_date
+FROM
+    HR.EMPLOYEES
+ORDER BY 3 desc;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Esta sentencia como bien lo dice, ordena por comission_pct pero pone a los nulls primero en la lista.
+
+SELECT
+    First_Name,Last_Name,Salary,Commission_Pct
+FROM
+    HR.EMPLOYEES
+ORDER BY
+    Commission_pct nulls first;
+
+Lo mismo que arriba pero primero pone a los ultimos nulls.
+
+SELECT
+    First_Name,Last_Name,Salary,Commission_Pct
+FROM
+    HR.EMPLOYEES
+ORDER BY
+    Commission_pct nulls last;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+En esta sentencia estamos buscando valores con un departamento id espesifico, en este caso el numero 30.
+    
+SELECT
+    First_Name,Last_Name,Salary,DEPARTMENT_ID
+FROM
+    HR.EMPLOYEES
+WHERE
+    department_id = '30';
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Esto nos permite buscar una department_id que el usuario espesifique, al poner = &IdDepartament estamos declarando una variable que se llenara cuando el usuario ponga un valor.
+
+SELECT
+    First_Name,Last_Name,Salary,DEPARTMENT_ID
+FROM
+    HR.EMPLOYEES
+WHERE
+    department_id = '&IdDepartament';
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Esta sentencia nos permite imprimir un campo que nosotros espesifiquemos, &campo es una variable que cuando corremos la sentencia nos preguntara por un campo. lo mismo pasa con la variable de salari.
+
+
+Select 
+    first_name, last_name, &campo 
+from 
+    HR.EMPLOYEES
+Where 
+    salary > &salari;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Esta sentencia declara un campo con el cual tambien sera ordenado los demas datos, la diferencia es que solo te pregunta una vez el mismo campo.
+
+
+
+Select 
+    first_name, last_name, &&campo
+From  
+    HR.EMPLOYEES
+Order by &campo;
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+Tenemos 3 sentencias diferentes, la primera inicia con un verify, este nos permite verificar una variable que sera definida, con define definimos el nombre de la variable y su valor, la siguiente sentencia es un simple select donde estamos condicionando que busque solo los departamentos id con la variable que previamente definimos, finalmente estamos borrando la variable que definimos al inicio, tenemos que copilar una por una las sentencias.
+
+
+SET VERIFY ON
+Define department_id_w = 30;
+
+SELECT *FROM HR.EMPLOYEES
+WHERE DEPARTMENT_ID = &department_id_w;
+
+Undefine department_id_w
+SET VERIFY OFF;
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sentencia para imprimir la informacion solicitada de dos personas con diferente nombre, es necesario poner el OR para evitar problemas, estan ordenados por la fecha de contratacion de manera acendiente.
+
+SELECT
+    Last_Name,Job_Id,Hire_Date
+FROM
+    HR.EMPLOYEES
+WHERE
+    LAST_NAME like 'Matos' OR LAST_NAME like 'Taylor'
+Order by
+    Hire_Date asc;
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+Muestre el apellido y el numero de departamento de todos los empleados de los departamentos 20 y 50 en orden alfabetico ascendente por nombre
+
+SELECT
+    Last_Name,Department_ID
+FROM
+    HR.EMPLOYEES
+WHERE
+    Department_ID = 20 OR Department_ID = 50
+Order by
+    Last_Name asc;
+
+---------------------------------------------------------------------------------------------------------------------------------------
+Sentencia que imprime el apellido y salario de lso empleados, nombrados employee y monthly salary respectivamente, solo imprime los empleados que ganen un salario entre 5000 y 12000 y que se encuentren entre los departamentos 20 o 50.
+
+Select
+    Last_Name AS Employee,Salary AS "Monthly Salary",Department_ID
+FROM
+    HR.EMPLOYEES
+WHERE
+    (SALARY BETWEEN 5000 AND 12000) AND (Department_ID = 20 OR Department_ID = 50);
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+La sentencia imprime todos los empleados que en el dia que fueron contratados fue junio, la sentencia original imprimiria todos los empleados del año 94, pero ningun empleado tiene esa fecha registrada.
+
+
+
+Select
+    Last_Name,Hire_Date
+From
+    HR.EMPLOYEES
+WHERE
+    Hire_Date like '%JUN%';
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+Sentencia que imprime el apellido, salario y comicion de los empleados los cuales no tienen NULL en la comision, estan ordenados por salario y comision de manera decreciente.
+
+SELECT
+    Last_Name,Salary,Commission_PCT
+FROM
+    HR.EMPLOYEES
+WHERE
+    Commission_Pct > 0.0
+Order by 
+    Salary desc,COMMISSION_PCT desc;

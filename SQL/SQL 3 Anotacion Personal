@@ -1,0 +1,72 @@
+------------------------------------------------------------------------------FUNCIONES-----------------------------------------------------------------------------
+En las sentencias es posible poner funciones las cuales se dividen en diferentes tipos, al igual que en la programacion normal tenemos que poner la funcion y entre parentesis la fila que deseamos modificar con esa funcion,
+
+la primera fila tenemos los nombres normales como estan registrados en la base de datos,
+
+la segunda fila el lower() nos permite modificar todos los registros a minusculas,
+
+la tercera fila el upper() nos permite convertir todos los registros a mayusculas,
+
+la cuarta el initcap() nos permite convertir cada primera de letra de cada palabra.
+
+
+SELECT
+    First_Name,lower(First_Name),upper(First_Name),initcap(First_Name)
+FROM
+    HR.EMPLOYEES;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+Sentencia la cual concadena dos palabras para forma el Hola mundo, la funcion concat() nos sirve para concatenar, utiliza la tabla dual, dual es una tabla echa por oracle para llevar a cabo pruebas en la base de datos sin modificar ningun valor.
+
+select CONCAT('Hola',' Mundo!') from dual;
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Sentencia con la funcion substr() la cual te permite substraer parte de una palabra:
+
+
+Substr(Nombre del campo/letra con la que iniciaremos/Numero de letras apartir de la letra que iniciamos) ejemplo:
+
+
+VICTOR ---------- substr(Nombre,2,3) ----------------ICT
+
+select 
+    first_name AS "Nombre",substr(job_id,1,2) AS "Area",substr(job_id,4,3) AS "Puesto",job_id AS "El bueno"
+  from 
+    HR.Employees;
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+El metodo length() nos permite sacar la longitud de un registro, es decir el tamaño
+
+select 
+    first_name AS "Nombre",length(first_name) AS "Longitud",last_name AS "Apellido",length(last_name) AS "Longitud"
+  from 
+     HR.EMPLOYEES;
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Esta sentencua es algo complecado de entender, en la primera parte estamos buscando los correos para imprimirlos en un campo, la siguiente estamos utilizando la sentencia INSTR() que nos permite retornar la posicion numerica de un caracter o palabra en un campo es decir:
+
+INSTR(Nombre del capo,punto incial de la busqueda-------/-------letra o palabra que estamos deseando ver donde se repite------/--------Posicion en la que se desea buscar-------/ -------Numero de incidencias)
+
+
+VICTOR ---------- INSTR(Nombre,0,1,1) ----------------5
+
+     
+select 
+    EMAIL AS "Region",INSTR(EMAIL,'A',1,2)  AS "Ubicacion 'A'"
+FROM
+    HR.EMPLOYEES;
+
+
+............................................................................................................................................................
+La sentencia nos permite rellenar de caracteres que queramos, utilizando el metodo LPAD() y RPAD()
+
+LPAD(Nombre del campo, numero de caracteres que tienen que estar rellenados,caracter que se desea)
+RPAD(Nombre del campo, numero de caracteres que tienen que estar rellenados,caracter que se desea)
+
+LPAD(department_id,3,'*')--------------------     *89
+RPAD(employee_id,10,'*')---------------------     100*******
+
+select 
+    LPAD(department_id,3,'*') AS "Id Departamento",DEPARTMENT_ID,RPAD(employee_id,10,'*') AS "Id empleado",EMPLOYEE_ID
+  from 
+    HR.Employees; 

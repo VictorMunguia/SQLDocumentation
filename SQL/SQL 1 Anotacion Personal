@@ -1,0 +1,49 @@
+Insertar datos: (Dentro del primer parentesis ponemos el nombre de las tablas, y en el segundo aprentesis ponemos el valor de cada campo, los numeros tambien tienen que llevar los dobles acentos.)
+
+INSERT INTO empleados (PersonID,LastName,FirtName,Age)
+VALUES ('1','Munguia','Victor','22');
+
+-------------------------------------------------------------------------------------------------------
+Crear tabla: (Su estructura en ingles te dice como irla creando, tenemos que poner el nombre del capo y el valor, dentro de un parentesis podemos explicar hasta que tamaño maximo.)
+
+CREATE TABLE empleados
+(
+PersonID int,
+LastName varchar(255),
+FirtName varchar(255),
+Age int
+);
+-------------------------------------------------------------------------------------------------------
+Sacar informacion de una tabla:
+
+select * from HR.EMPLOYEES;
+-------------------------------------------------------------------------------------------------------
+Sacar un campo espesifico de una tabla:( Utilizamos el select despues ponemos el nombre del campo de la tabla y finalizamos con la ubicacion de ese campo, es decir el nombre de la tabla)
+
+select JOB_ID from HR.EMPLOYEES;
+------------------------------------------------------------------------------------------------------
+Sacar multiples campos de una tabla: (es lo mismo que sacar un campo, solo que tenemos que poner comas entre los diferentes campos)
+
+Select First_name,last_name,Email from HR.EMPLOYEES;
+------------------------------------------------------------------------------------------------------
+Imprimiendo informacion con otros nombres: (utilizamos el select para sacar la informacion, despues ponemos el campo que deseamos imprimir y en este caso lo multiplicamos por .20 para sacar el 20% del salario, utilizando el comando AS podemos nombrar un campo para imprimir la informacion, finalmente ponemos de que tabla.)
+
+select SALARY*.20 AS Incremento from HR.EMPLOYEES;
+---------------------------------------------------------------------------------------------------------
+Imprimiendo informacion con otros nombres con espacios en blanco: ( Si queremos renombrar una columna con algo con espacios en blanco solo tenemos que poner doble comillas a la oracion.)
+
+select SALARY*.20 AS "Incremento de salario" from HR.EMPLOYEES;
+--------------------------------------------------------------------------------------------------------
+Concatenar texto: ( utilizando la doble linea podemos concatenar texto y campos para imprimir la informacion mas completa )
+
+select 'Tu correo es: ' || Email From HR.EMPLOYEES;
+
+-------------------------------------------------------------------------------
+Retornar valores no duplicados: (utilizando la palabra distinct podemos retornar valores que no estan duplicados en la base de datos)
+
+Select distinct department_id from hr.employees;
+
+------------------------------------------------------------------------------------------
+Imprimir comillas como texto y no como un delimitador de texto:
+
+select DEPARTMENT_NAME || q'[ Department's Manager Id: ]' || manager_id as "Departamento y manager" from HR.DEPARTMENTS; 
