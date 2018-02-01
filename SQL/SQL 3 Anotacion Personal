@@ -57,7 +57,7 @@ FROM
     HR.EMPLOYEES;
 
 
-............................................................................................................................................................
+---------------------------------------------------------------------------------------------------------------------------------------------------------
 La sentencia nos permite rellenar de caracteres que queramos, utilizando el metodo LPAD() y RPAD()
 
 LPAD(Nombre del campo, numero de caracteres que tienen que estar rellenados,caracter que se desea)
@@ -69,4 +69,44 @@ RPAD(employee_id,10,'*')---------------------     100*******
 select 
     LPAD(department_id,3,'*') AS "Id Departamento",DEPARTMENT_ID,RPAD(employee_id,10,'*') AS "Id empleado",EMPLOYEE_ID
   from 
-    HR.Employees; 
+    HR.Employees;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------- 
+La sentencia utiliza la funcion REPLACE() la cual nos permite sustituir una cadena de caracters o un caracter por otro que espesifiquemos.
+
+REPLACE(Nombre del campo donde vamos a sustituir,caracter que vamos a sustituir,caracter que deseamos poner)
+
+REPLACE(Name,'v','*')---------------------VICTOR-------------------*ICTOR
+
+select 
+    employee_id AS "Id empleado",job_id AS "Clave anterior del puesto",REPLACE(job_id,'_','-') AS "Nueva clave del puesto"
+  from 
+    HR.Employees;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+La funcion TRIM nos permite quitar caracteres o letras de un dato.
+
+SELECT TRIM('H' FROM 'HELLOWORKD') FROM dual;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Esta sentencia nos permite ver las funciones numericas.
+
+round(salary/.337,2) nos permite redondear en 2 digitos el resultado de la division de salario entre .337, es decir que si queda un numero 453.2343435----------453.24
+
+trunc(salary/.337,2) por otra parte nos permite quitar los digitos del numero largo es decir que si queda un numero 453.2343435----------453.23
+
+
+select 
+    employee_id,salary/.337,round(salary/.337,2) AS "Redondeo",trunc(salary/.337,2) AS "Truncado"
+  from 
+    HR.Employees;
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+CONTINUARA..... :v
+
+
+select 
+    Salary/30 AS "Salaro normal",trunc(salary/30) AS "Salario Truncado",mod(salary,30)
+FROM 
+    HR.Employees;
