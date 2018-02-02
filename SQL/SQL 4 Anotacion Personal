@@ -1,0 +1,135 @@
+----------------------------------------------------------------------CONVERCIONES-------------------------------------------------------------------------------
+Esta sentencia nos permite convertir la fecha a un formato tipo string con TO_CHAR(), Ponemos la fecha que deseamos convertir y acontinuacion el formato que deseamos dar.
+
+En el ultimo campo podemos convertir cualquier numero a string, dandole el formato que nosotros queramos, ene ste caso ponemos un numero similar en el otro lado y podemos agregar el signo de pesos, comas entre los miles o punto decimal para poder representar el numero como queramos,cabe destacar que ya es un numero tipo string por lo que eso es lo que nos va a retornar una fila de caracters, finalmente agregamos un identificador a la columna ddspth para identificar esa columna.
+
+La siguiente funcion es TO_NUMBER(), la cual hace todo lo contrario a la primera funcion, le metemos un numero tipo caracter y nos va a retornar un numero tipo number, de la misma manera podemos poner el tipo de numero que deseamos que nos retorne, que tenga coma los miles etc..
+
+La siguiente funcion es TO_DATE() la cual nos permite convertir una serie de numeros e una fecha, poniendo del lado derecho el tipo de formato, tambien podemos agregar una fecha de tipo string y la convertira en una fecha tipo fecha.
+
+
+SELECT 
+    Last_Name,Hire_date
+    ,TO_CHAR(Hire_date,'fmDD Month YYYY')
+    ,TO_CHAR(1210.73,'$9,999.00') ddspth
+    ,TO_NUMBER('1210.73', '9999.99')
+    ,TO_DATE('20020315', 'yyyymmdd')
+    ,TO_DATE('070903', 'MMDDYY')
+    ,TO_DATE('2003/07/09', 'yyyy/mm/dd')
+FROM 
+    HR.EMPLOYEES;
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Podemos anidar funciones para obtener resultados que buscamos, por ejemplo:
+
+
+En esta sentencia estamos anidando dos funciones, la MAX() Nos permite encontrar el valor maximo de un total y el to_date convertir valores a tipo fecha, con esta sentencia podemos sacar la fecha maxima de un grupo de fechas.
+
+
+SELECT MAX(to_date(HIRE_DATE,'DD-MON-YYYY'))
+  FROM HR.EMPLOYEES
+  WHERE EMPLOYEE_ID >200;
+
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------
+Esta sentencia nos permite convertir un valor null en un valor real que nosotros asignemos.
+
+  Select 
+            Employee_id
+            ,salary
+            ,commission_pct
+            ,nvl(commission_pct,2)
+From
+           hr.employees;
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+La funcion nvl() tambien nos permite sustituir un campo null, si por ejemplo tenemos un campo donde falta un numero de telefono podemos sustiuir con la palabra verificar.
+
+Select 
+            Employee_id
+            ,nvl(phone_number,'verificar')
+From
+           HR.employees;
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+La sentencia nos permite utilizar la funcion nvl2() la cual es una extencio de la nvl(), esta nos permite condicionar en caso de que el campo tenga un valor null poner sin comision y en caso de que si tenga un valor poner con comision.
+
+Select 
+            Employee_id
+            ,salary
+            ,commission_pct
+            ,nvl2(commission_pct,'Con comision','Sin comision')
+From
+           HR.employees;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Esta sentencia utiliza una nueva funcion que es NULLIF() la cual nos permite comparar dos valores, y si amos son iguales nos retornara un null, sin embargo si son diferentes nos pondra el valor de la comparacion mas grande.
+
+
+SELECT
+    EMPLOYEE_ID,SALARY
+    ,length(SALARY) AS "Tamaño del salario"
+    ,FIRST_NAME
+    ,length(First_name) AS "Tamaño nombre"
+    ,NULLIF(length(SALARY),length(First_name))
+FROM
+    HR.EMPLOYEES
+WHERE
+    EMPLOYEE_ID > &TamañoProporcionado;
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Sentencia con un case, imprimimos algunos valores y despues ponemos unc ase, donde estamo condicionando valores del salaro, finalmente ppnemos un else en caso de que no entre a otra condicion y un END para ceerar el ciclo, ponemos un where donde le damos a elejir al usuario entre que numeros quiere hacer la comparacion y ordenamos los valores con su salario.
+
+
+SELECT
+    EMPLOYEE_ID,FIRST_NAME,SALARY,
+CASE 
+    WHEN SALARY < 3000 THEN '1'
+    WHEN SALARY < 6000 THEN '2'
+    WHEN SALARY < 9000 THEN '3'
+    WHEN SALARY < 12000 THEN '4'
+    ELSE 'Ganas mucho'
+END
+FROM
+    HR.EMPLOYEES
+WHERE 
+    EMPLOYEE_ID BETWEEN &NumeroEspesifico1 AND &NumeroEspesifico2
+Order by
+    SALARY asc;
+
+
+En esta otra sentencia tenemos un ciclo donde podemos comparar letras de un campo y una funcion donde comparamos el tamaño.
+
+
+SELECT
+    EMPLOYEE_ID,FIRST_NAME,SALARY,
+CASE 
+    WHEN FIRST_NAME = 'Tayler' THEN '1'
+    WHEN length(FIRST_NAME) = 6  THEN '2'
+    WHEN SALARY < 9000 THEN '3'
+    WHEN SALARY < 12000 THEN '4'
+    ELSE 'Ganas mucho'
+END
+FROM
+    HR.EMPLOYEES
+WHERE 
+    EMPLOYEE_ID BETWEEN &NumeroEspesifico1 AND &NumeroEspesifico2
+Order by
+    SALARY asc;
+
+Esta sentencia es como un case pero de una manera mas rapida, simplemente ponemos el metodo DECODE y condicionamos los posibles resultados. Cuando no se cumple ninguna de las sentencias multiplicamos el salario correspondiente por 1.5, en el resultado podemos poner ecuaciones.
+
+
+SELECT
+    EMPLOYEE_ID
+    ,SALARY
+    ,FIRST_NAME
+    ,DECODE(SALARY, 2500, 'IBM',
+                    15000, 'Microsoft',
+                    30000, 'Hewlett Packard',
+                    1.5*SALARY) result
+FROM
+    HR.EMPLOYEES
+WHERE
+    EMPLOYEE_ID BETWEEN 150 AND 207
+ORDER BY
+    SALARY;
+    
