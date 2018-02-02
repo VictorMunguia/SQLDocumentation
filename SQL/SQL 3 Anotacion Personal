@@ -102,11 +102,97 @@ select
     HR.Employees;
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
-
-CONTINUARA..... :v
-
+Sentencia que imprime el salario entre 30, depues con la funcion trunc() nos corta los numeros despues del decimal y el mod que nos regresa el residuo de la divicion.
 
 select 
     Salary/30 AS "Salaro normal",trunc(salary/30) AS "Salario Truncado",mod(salary,30)
 FROM 
     HR.Employees;
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+La funcion Round()ependiendo del ultimo numero que pongamos sera la cantidad de ceros que va a redondear, si ponemos numeros negativos redondea el resultado completo.
+
+
+    
+select 
+            Round(27.567,2)
+           ,Round(27.567,0)
+           ,Round(27.567,-1)
+           ,Round(127.567,-2)
+          ,Round(167.567,-2)
+  from 
+           HR.Employees;
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+La funcion trunc() al igual que Round() quita numeros dependiendo del numero que pongamos al final, si ponemos numeros negativos corta tambien los numeros depues del punto decimal.
+
+select 
+            trunc(27.567,2)
+           ,trunc(27.567,0)
+           ,trunc(27.567,-1)
+           ,trunc(127.567,-2)
+          ,trunc(167.567,-2)
+  from 
+           HR.Employees;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+La funcion SYSDATE nos permite retornar el el tiempo exacto en el que estamos, dia fecha y hora.
+
+SELECT SYSDATE FROM dual;
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Al sumar un numero entero a sysdate nos permite sumar dias, en este caso sumamos 1 dia, restamos un dia y sumamos un mes.
+
+select 
+             sysdate
+            ,sysdate + 1
+            ,sysdate - 1
+            ,sysdate + 30
+  from 
+           Dual;
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+En esta sentencia tenemos el dia en el que fue contratado y la fecha actual, lo siguiente es restar el sysdate al dia que fue contratado para opener los dias que tiene el empleado laborando, acontinuacion a ese resultado lo dividimos entre 7 para sacar las semanas y asi susesivamente para ir sacando el equivalente entre meses.
+
+Select
+             employee_id
+            ,hire_date
+            ,sysdate - HIRE_DATE AS Dias
+            ,(sysdate - HIRE_DATE)/7 AS Semanas
+            ,((sysdate - HIRE_DATE)/7)/4 AS Mes
+            ,sysdate
+From
+            HR.employees
+WHERE
+    DEPARTMENT_ID = 80;
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+En esta sentencia estamos utilizando varias funciones de tiempo:
+
+
+months_between() nos retorna el numero de meses que hay entre dos fechas, poner la fecha mas grande del lado izquierdo para compararla con la de la derecha.
+ADD_MONTHS() nos permite agregar meses a una fecha, del lado izquierdo el campo o fecha y del lado derecho el numero de meses.
+NEXT_DAY() nos permite irnos a un dia en espesifico.
+LAST_DAY() Nos permite irnos al ultimo dia de la semana.
+ROUND() Nos permite redondear una fecha apartir de lo que pongamos a la izquierda.
+TRUNC() Nos permite quitarle dias.
+
+
+
+SELECT 
+    MONTHS_BETWEEN(SYSDATE,HIRE_DATE)
+    ,ADD_MONTHS(HIRE_DATE,6)
+    ,NEXT_DAY(SYSDATE,'FRIDAY')
+    ,LAST_DAY(SYSDATE)
+    ,HIRE_DATE
+    ,SYSDATE
+    ,ROUND(SYSDATE,'MONTH')
+    ,ROUND(SYSDATE,'YEAR')
+    ,TRUNC(SYSDATE,'MONTH')
+    ,TRUNC(SYSDATE,'YEAR')
+FROM
+    HR.EMPLOYEES
+WHERE
+    DEPARTMENT_ID = 80;

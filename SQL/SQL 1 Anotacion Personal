@@ -3,6 +3,13 @@ Insertar datos: (Dentro del primer parentesis ponemos el nombre de las tablas, y
 INSERT INTO empleados (PersonID,LastName,FirtName,Age)
 VALUES ('1','Munguia','Victor','22');
 
+-----------------------------------------------------------------------------------------------------------------------------
+Para actualizar informacion utilizamos esta sentencia,en la primera parte ponemos UPDATE donde vamos a poner la tabla en la que deseamos trabajar, en el siguiente ponemos SET y ponemos los campos que queremos cambiar un igual y el valor, en caso de ser mas de un campo ponemos una coma, finalmente ponemos un WHERE donde haremos referencia a una condicion aprticular para que estos campos se acgtualizen.
+
+UPDATE HR.EMPLOYEES
+SET HIRE_DATE = '29-JAN-18'
+WHERE EMPLOYEE_ID = 207;
+
 -------------------------------------------------------------------------------------------------------
 Crear tabla: (Su estructura en ingles te dice como irla creando, tenemos que poner el nombre del capo y el valor, dentro de un parentesis podemos explicar hasta que tamaño maximo.)
 
