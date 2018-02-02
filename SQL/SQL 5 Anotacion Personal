@@ -1,0 +1,38 @@
+--------------------------------------------------------------------------------------GRUPOS------------------------------------------------------------------------
+Las sentencias en grupo nos permiten afectar a toda la columna de campos:
+
+AVG() nos permite sacar la media
+
+MAX() nos permite sacar el valor maximo de la columna
+
+MIN() nos permite sacar el valor mas pequeño de la columna
+
+SUM() nos permite sumar todos los valores de la columna
+
+COUNT(*) Nos permite devolver el numero total de tablas
+
+COUNT(SALARY) Nos permite contar las celdas totatles que no esten vacias de salario, al espesificar que seldas queremos contar podemos espesificar si queremos que los valores null no se cuenten.
+
+COUNT(DISTINCT SALARY) Devuelve los valores no nullos pero que sean distintos entre ellos.
+
+AVG(NVL(SALARY,0)) Las funciones de agrupacion ignoran los nulls , poniendo un nvl en la funcion podemos obligar a estas funciones a tomar en cuenta los nulls dandoles un valor real
+
+
+Estos a su ves pueden trabajar con valores numericos de todo tipo incluso fechas.
+
+
+select 
+    AVG(SALARY)
+    ,MAX(SALARY)
+    ,MIN(SALARY)
+    ,SUM(SALARY)
+    ,MIN(HIRE_DATE)
+    ,MAX(HIRE_DATE)
+    ,COUNT(*)
+    ,COUNT(salary)
+    ,COUNT(DISTINCT SALARY)
+    ,AVG(NVL(SALARY,0))
+FROM
+    HR.EMPLOYEES
+WHERE
+    JOB_ID LIKE '%REP%';

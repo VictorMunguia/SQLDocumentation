@@ -196,3 +196,14 @@ FROM
     HR.EMPLOYEES
 WHERE
     DEPARTMENT_ID = 80;
+
+
+
+
+
+ ------------------------------------------------------------------------------------------------------------------------------
+Podemos anidar funciones, aqui utilizamos una funcion llamada extract() la cual dentro le estamos diciendo que extraiga el año de la convercion de hire_date a date utilizando la formula dd-mon-yyyy, a este resultado le estamos sacando el maximo de todas las fechas, finalmente le sacamos solo el año.
+
+ SELECT EXTRACT (YEAR FROM(MAX(to_date(HIRE_DATE,'DD-MON-YYYY')))) AS Resultado
+  FROM HR.EMPLOYEES
+  WHERE EMPLOYEE_ID >200; 
