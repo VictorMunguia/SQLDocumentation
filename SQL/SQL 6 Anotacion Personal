@@ -1,0 +1,125 @@
+----------------------------------UNION DE DOS TABLAS----------------------------------------------------------------------------
+La union Natural join nos sirve para sacar informacion de dos tablas las cuales tienen un campo con el mismo nombre y que contienen la misma informacion, ene ste caso departamentos requiere de un campo ID de locations para poder ahcer referencia, aqui se pueden poner tantos campos de la otra tabla como queramos.
+
+
+
+¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡SOLO USAR EN CASO DE QUE LAS DOS TABLAS TENGAN UN NOMBRE DE COLUMNA IGUAL CON LOS MISMO DATOS¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡
+
+SELECT
+    Department_id
+    ,Department_name
+    ,Location_id
+    ,city
+    ,COUNTRY_ID
+FROM
+    HR.DEPARTMENTS
+Natural Join HR.LOCATIONS;
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+Esta sentencia hace la misma funcion que arriba, la unica diferencia es que al utilizar USING resolvemos el problema de la confucion de dos tablas con el mismo nombre pero con diferente datos.
+
+
+PREGUNTAR REFERENTE AL HR.EMPLOYEES Y SI EL USO DE ESTO ESTA BIEN¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡
+
+SELECT
+    HR.EMPLOYEES.EMPLOYEE_ID
+    ,HR.EMPLOYEES.LAST_NAME
+    ,HR.DEPARTMENTS.LOCATION_ID
+    ,DEPARTMENT_ID
+FROM
+    HR.EMPLOYEES JOIN HR.DEPARTMENTS
+USING(Department_id);
+
+
+
+
+
+Es la misma sentencia, solo que aqui estoy probando que tambien se pueden condicionar las sentencias que utilizan imprecion de varias tablas.
+
+
+
+
+
+SELECT
+    HR.EMPLOYEES.EMPLOYEE_ID
+    ,HR.EMPLOYEES.LAST_NAME
+    ,HR.DEPARTMENTS.LOCATION_ID
+    ,DEPARTMENT_ID
+FROM
+    HR.EMPLOYEES JOIN HR.DEPARTMENTS
+USING(Department_id)
+WHERE
+    HR.EMPLOYEES.Last_name like '%King%';
+
+
+------------------------------------------------------------------------------------------
+La sentencia es la misma, la unica diferencia es que en ves de utilizar using, le espesificamos a la sentencia con ON cuales tablas tienen el mismo valor.
+
+
+SELECT
+    HR.EMPLOYEES.EMPLOYEE_ID
+    ,HR.EMPLOYEES.LAST_NAME
+    ,HR.EMPLOYEES.DEPARTMENT_ID
+    ,HR.DEPARTMENTS.DEPARTMENT_ID
+    ,HR.DEPARTMENTS.LOCATION_ID
+FROM
+    HR.EMPLOYEES JOIN HR.DEPARTMENTS
+ON(HR.EMPLOYEES.DEPARTMENT_ID = HR.DEPARTMENTS.DEPARTMENT_ID);
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------
+Esta sentencia une 3 tablas, cada una con su llave forania correspondiente, el orden que lelva de los join depende mucho de que tablas tienen una tabla con los mismo valores. si corres las sentencias para ver el contenido de estas tres tablas, al final de cada tabla esta un campo llave forania de la otra tabla.
+
+
+SELECT
+    Employee_id
+    ,City
+    ,Department_name
+FROM
+    HR.EMPLOYEES
+JOIN HR.DEPARTMENTS
+ON(HR.EMPLOYEES.DEPARTMENT_ID = HR.DEPARTMENTS.DEPARTMENT_ID)
+JOIN HR.LOCATIONS
+ON(HR.LOCATIONS.LOCATION_ID = HR.DEPARTMENTS.LOCATION_ID);
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+En esta sentencia estamos pidiendo que la tabla izquierda se imprima absolutamente todo lo que tenga concidencia con la tabla derecha, sin envargo el comando OUTER nos pide que tambien imprimamos lo que en la izuiqerda no se tenga conicidencia
+    
+SELECT
+    HR.EMPLOYEES.LAST_NAME
+    ,HR.EMPLOYEES.DEPARTMENT_ID
+    ,HR.DEPARTMENTS.DEPARTMENT_NAME
+FROM
+    HR.EMPLOYEES LEFT OUTER JOIN HR.DEPARTMENTS
+ON(HR.EMPLOYEES.DEPARTMENT_ID = HR.DEPARTMENTS.DEPARTMENT_ID);
+
+
+
+
+
+SELECT
+    HR.EMPLOYEES.LAST_NAME
+    ,HR.EMPLOYEES.DEPARTMENT_ID
+    ,HR.DEPARTMENTS.DEPARTMENT_NAME
+FROM
+    HR.EMPLOYEES RIGHT OUTER JOIN HR.DEPARTMENTS
+ON(HR.EMPLOYEES.DEPARTMENT_ID = HR.DEPARTMENTS.DEPARTMENT_ID);
+
+
+
+
+SELECT
+    HR.EMPLOYEES.LAST_NAME
+    ,HR.EMPLOYEES.DEPARTMENT_ID
+    ,HR.DEPARTMENTS.DEPARTMENT_NAME
+FROM
+    HR.EMPLOYEES FULL OUTER JOIN HR.DEPARTMENTS
+ON(HR.EMPLOYEES.DEPARTMENT_ID = HR.DEPARTMENTS.DEPARTMENT_ID);
+
+
+

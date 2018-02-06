@@ -1,0 +1,80 @@
+--------------------------------------------------------Sub Consultas-----------------------------------------------------------
+Esta es una sub consulta, la consulta que esta mas fuera actua por lo que tiene escrito dentro es decir...
+
+
+Quiero imrpimir el campo last name de empleados donde sea mayor que salario de empleados sea igual a Abel.
+
+
+SELECT
+    Last_name
+FROM
+    HR.EMPLOYEES
+WHERE 
+    SALARY >(SELECT Salary
+             FROM HR.EMPLOYEES
+            WHERE LAST_NAME = 'Abel');
+
+
+-----------------------------------------------------------------------------------
+Aqui tenemos una sentencia con varias subconsultad,basicamente nos imprime el primer nombre, el id de trabajo y el salario de los empleados en los que su ID de trabajo sea igual al ID de trabajo del empleado con el ID 141 y que tambien cumpla con la doncicion de que su salario sea mayor al salario del empleado con el ID 143.
+
+
+SELECT
+    Last_name
+    ,Job_id
+    ,Salary
+FROM
+    HR.EMPLOYEES
+WHERE
+    Job_id = (SELECT Job_ID
+              FROM HR.EMPLOYEES
+              WHERE employee_id = 141)
+AND
+    Salary >(SELECT Salary
+             FROM HR.EMPLOYEES
+             WHERE EMPLOYEE_ID = 143);
+
+
+
+
+....................................................................................................................................
+
+Esta sentencia tiene una subconsulta que tiene un operador en grupo que es el min, nos dice que solo imrpimira el apellido, el tipo de id de trabajo, el salario de los empleados que tienen un salario similar al minimo salario de los empleados.
+
+
+SELECT
+    Last_name
+    ,Job_id
+    ,Salary
+FROM
+    HR.EMPLOYEES
+WHERE
+    SALARY =(SELECT min(SALARY)
+             FROM HR.EMPLOYEES);
+
+
+
+Sentencia SQL con consultas en grupo. nos dice que solo va a impimir el salario minimo deñ grupo de departmento_id es decir todos los id de departamentos que no se repitan siempre y cuando el minimo del salario sea mayor al minimo del salario del grupo de departamentos del ID 50
+
+
+             
+SELECT
+    Department_id
+    ,MIN(SALARY)
+FROM
+    HR.EMPLOYEES
+GROUP BY
+    DEPARTMENT_ID
+HAVING MIN(SALARY) >(SELECT MIN(SALARY)
+                     FROM HR.EMPLOYEES
+                     WHERE DEPARTMENT_ID = 50);
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+https://www.youtube.com/watch?v=rGPb5E1UAJA
