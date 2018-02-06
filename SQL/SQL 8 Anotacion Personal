@@ -1,0 +1,179 @@
+Utilizar UNION nos permite conectar dos tablas las cuales tengan sus campos el mismo valor mutuamente, es necesario que valgan lo mismo y tengan el mismo numero de campos, sin embargo en este caso funciono y no tienen el mismo numero de campos, el resultado es que pega todos los productos en una misma tabla, si tuvieramos dos tablas con productos diferentes pero con los mismos datos la utilizacion de UNION seria perfecta.
+
+SELECT 
+    Employee_id
+    ,Job_id
+FROM
+    HR.EMPLOYEES
+UNION
+SELECT 
+    employee_id
+    ,job_id
+FROM
+    HR.JOB_HISTORY;
+
+
+
+ -------------------------------------------------------------------------------------------------------------------------------------------------
+Utilizar el UNION ALL nos permite repetir los datos de las tablas, de esta manera los datos que e´stan repetidos en ambas tablas seran impresos.
+
+ SELECT
+    Employee_id
+    ,Job_id
+    ,Department_id
+FROM
+    HR.EMPLOYEES
+UNION ALL
+SELECT
+    EMPLOYEE_ID
+    ,JOB_ID
+    ,DEPARTMENT_ID
+FROM
+    HR.JOB_HISTORY
+ORDER BY
+    EMPLOYEE_ID;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+La consulta INTERSECT nos permite hacer una interseccion entre las tablas y donde los datos se repitan la consulta lo imprimira.
+
+
+SELECT
+    Employee_id
+    ,Job_id
+FROM
+    HR.EMPLOYEES
+INTERSECT
+SELECT
+    Employee_id
+    ,Job_id
+FROM
+    HR.JOB_HISTORY;
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+MUuestra los empleados que no han cambiado su actual trabajo..Retorna todos los empleados que en la primera tabla estan pero en la segunda tabla no se encuentran.
+
+SELECT
+    Employee_id
+    ,Job_id
+FROM
+    HR.EMPLOYEES
+MINUS
+SELECT
+    Employee_id
+    ,Job_id
+FROM
+    HR.JOB_HISTORY;
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+La sentencia basicamente nos pone que los campos employee_id y department_id de la tabla employees seran impreso siempre y cuando sean iguales a la union de hr.employees y hr.job_history.
+
+
+
+
+SELECT employee_id, department_id
+    FROM HR.employees
+WHERE (employee_id, department_id)
+            IN (
+                   SELECT employee_id, department_id
+                       FROM hr.employees
+                      UNION
+                   SELECT employee_id, department_id
+                       FROM HR.job_history
+                  );
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+La senencia imrpme el numero de departamento , la fecha de contratacion y la ubicacion, de contratacion de todos los empleados.
+
+
+SELECT
+    Department_id
+    ,TO_NUMBER(NULL) location
+    ,Hire_date
+FROM
+    HR.EMPLOYEES
+UNION
+SELECT
+    Department_id
+    ,location_id
+    ,TO_DATE(NULL)
+FROM
+    HR.DEPARTMENTS;
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+La sentencua nos permite comparar las dos tablas apra sacar el numero de empleado, el tipo de trabajo y su salario, abajo ponemos un 0 para igualar el numero de campos, este 0 nos permite poner un reslutado en caso de que no contemos con la informacion del salario.
+
+
+SELECT
+    Employee_id
+    ,Job_id
+    ,Salary
+FROM
+    HR.EMPLOYEES
+UNION
+SELECT
+    Employee_id
+    ,job_id
+    ,0
+FROM
+    HR.JOB_HISTORY;
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+Esta sentencia nos permite imprimir el Department_id y e job para revolverlo con los mismos datos de job_histoy y employees, pero condicionando a job_histoy para que solo imprima si su job_id es igual a ST_CLERK, ahora utilizando el oeprador set MINUS podemos decir que solo lo que haya del lado izquierod es decir de la tabla employees todo lo que no concida con la tabla job_history sera impreso, como la tabla job_histoy tiene puero datos con job_id st_clerk no van a salir ninguno de esos datos.
+
+
+SELECT
+    Department_id
+    ,Job_id
+FROM
+    HR.EMPLOYEES
+MINUS
+SELECT
+    Department_id
+    ,JOB_ID
+FROM
+    HR.JOB_HISTORY
+WHERE
+    JOB_ID = 'ST_CLERK';
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Esta sentencia nos permite impimir las location id con sus respectivos nombres de pais que no tienen ningun departamento, en la primera aprte imprimimos la location_id junto con su contry_id y en la primera tenemos que sustituir la tabla que no pertenece con un number null para que el numero de tablas sea igual, utilizamos neuvamente el MINUS y den la aprte de abajo solo tenemos que poner el departamentos ID  y loa location para que las loalidades que estan del lado izquierdo no aparescan en el derecho.
+
+
+SELECT
+    TO_NUMBER(NULL)Departament
+    ,Location_id
+    ,Country_id
+FROM
+    HR.LOCATIONS
+MINUS
+SELECT
+    DEPARTMENT_ID
+    ,Location_id
+    ,to_char(NULL) COUNTRY
+FROM
+    HR.DEPARTMENTS;
+
+
+En esta sentencia tenemos lo mismo que arriba, solo que estamos utilizando el left outer JOIN para poder juntar las tablas, espesificamos que tablas queremos imprimir, utilizamos el from para espesificar que tabla se unira con cual, el left outher join con la otra tabla y utilizamos el ON para espesificar con que queremos relacionar als tablas.
+
+
+
+   SELECT
+    HR.LOCATIONS.Location_id
+    ,HR.LOCATIONS.Country_id
+    ,HR.DEPARTMENTS.DEPARTMENT_ID
+FROM
+    HR.LOCATIONS LEFT OUTER JOIN HR.DEPARTMENTS
+ON(HR.LOCATIONS.LOCATION_ID = HR.DEPARTMENTS.LOCATION_ID);

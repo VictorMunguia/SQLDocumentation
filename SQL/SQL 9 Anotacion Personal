@@ -1,0 +1,71 @@
+------------------------Objetos de la base de datos-----------------------------------------------------------------------------------------------------------------
+
+
+
+TABLA= Unidad basica de almacenamiento; compuesta por filas.
+
+Vista= Representa la forma logica subjuegos de datos de una o mas tablas
+
+Secuencia= Genera valores numericos.
+
+Indice= Mejora el rendimiento de algunas consultas
+
+Sinonimo= Proporciona nombres alternativos a obejtos
+
+
+
+Para crear una tabla utilizamos la palabra almacenada de CREATE TABLE.
+
+CREATE TABLE Customer
+(First_Name char(50),
+Last_Name char(50),
+Address char(50),
+City char(50),
+Country char(25),
+Birth_Date datetime);
+
+
+
+
+Creando la tabla Clientes:
+
+CREATE TABLE CLIENTES
+( id_Cliente char(8) primary key,
+NombreCliente varchar(max)
+);
+
+¿Por qué "max"? Quiero decir que la columna "NombreCliente" no tendrá límite de caracteres (bueno no tanto así), a diferencia de "id_Cliente" que sí tiene un límite 8 caracteres, es decir "NombreCliente" puede llegar hasta el máximo que soporta un "varchar" que según Microsoft en SQLServer 2012, indica que el tamaño máximo de almacenamiento es de 2GB. 
+
+Creando la tabla Productos:
+
+CREATE TABLE PRODUCTOS
+( id_Producto char(8) primary key,
+Rubro varchar(20),
+Tipo varchar(20),
+NombreProducto varchar(max)
+);
+
+Creando la tabla Fechas:
+
+CREATE TABLE FECHAS
+( id_Fecha char(8) primary key,
+Anio varchar(5),
+Trimestre nvarchar(20),
+Mes int,
+Dia int
+);
+
+Creando la tabla Ventas:
+
+CREATE TABLE VENTAS
+( id_Cliente char(8) not null,
+id_Producto char(8) not null,
+id_Fecha char(8) not null,
+importeTotal float,
+Utilidad float,
+CONSTRAINT fk_Cliente FOREIGN KEY (id_Cliente) REFERENCES CLIENTES (id_Cliente),
+CONSTRAINT fk_Producto FOREIGN KEY (id_Producto) REFERENCES PRODUCTOS (id_Producto),
+CONSTRAINT fk_Cliente FOREIGN KEY (id_Fecha) REFERENCES FECHAS (id_Fecha)
+);
+
+

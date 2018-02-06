@@ -74,10 +74,27 @@ HAVING MIN(SALARY) >(SELECT MIN(SALARY)
 
 
 ---------------------------------------------------------------------------------------------------------------------------------
+EN esta sentencia estamos regresando varias columnas , estamos pidiendo a la sentencias que nos imprima el eployee_id, last_name.job_id,saalary, de todos los empleados que su salario sea menor a cualquiera de los salarios de los empleados que tengan en su JOB_ID it_prog y que ademas su hob_id sea diferente de it_prog
 
+
+Utilizar ANY significa que la sentencia tiene que ser igual, mayor o menor a cualquiera de los registros que se estan comparado
+UTILIZAR ALL significa lo mismo pero de todos los productos que se estan comparados
+Utilixar IN significa que la consulta se va a comprar con los valores in donde son iguales a los demas articulos
+
+
+
+SELECT
+    EMPLOYEE_ID
+    ,LAST_NAME
+    ,JOB_ID
+    ,SALARY
+FROM
+    HR.EMPLOYEES
+WHERE SALARY < ANY(SELECT SALARY
+                   FROM HR.EMPLOYEES
+                   WHERE JOB_ID = 'IT_PROG')
+AND
+    JOB_ID <> 'IT_PROG';
 
 
 https://www.youtube.com/watch?v=rGPb5E1UAJA
-
-
-dasdasdasdsa

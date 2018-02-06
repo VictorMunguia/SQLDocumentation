@@ -1,7 +1,27 @@
-Insertar datos: (Dentro del primer parentesis ponemos el nombre de las tablas, y en el segundo aprentesis ponemos el valor de cada campo, los numeros tambien tienen que llevar los dobles acentos.)
+Insertar datos: (Dentro del primer parentesis ponemos el nombre de las tablas, y en el segundo aprentesis ponemos el valor de cada campo, los numeros tambien tienen que llevar los dobles acentos.) SE PUEDE HACER USO DE VALORES ESPECIALES COMO Y SYSDATE PARA OBTENER LA FECHA ACTUAL.
+
+
+Tambien es factible agregar valores de fecha espesifico como:
+
+TO_DATE() 
+
+
+TAMBIEN SE PUEDE SUSTITUIR EL VALOR POR: &NOMBREDELCAMPO ESTO PARA SOLICITAR AL USUARIO QUE TIENE QUE PONER UN VALOR.
 
 INSERT INTO empleados (PersonID,LastName,FirtName,Age)
 VALUES ('1','Munguia','Victor','22');
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+Es posible crear un insert con una consulta, simplemente en vez de poner una consulta.
+
+INSERT INTO HR.EMPLOYEERS (ID,NAME,SALARY)
+	SELECT EMPLOYEE_ID,LAST_NAME,SALARY
+	FROM HR.EMPLOYEERS
+	WHERE JOB_ID LIKE '%REP%';
+
+DE ESTA FORMA ESTAMOS DICIENDO QUE EL INSERT VA A SER LA INFORMACION QUE SAQUEMOS DEL SELECT DE LOS CAMPOS DE LA TABLA EMPLOYEERS DONDE JOB_ID SEA IGUAL A REP
 
 -----------------------------------------------------------------------------------------------------------------------------
 Para actualizar informacion utilizamos esta sentencia,en la primera parte ponemos UPDATE donde vamos a poner la tabla en la que deseamos trabajar, en el siguiente ponemos SET y ponemos los campos que queremos cambiar un igual y el valor, en caso de ser mas de un campo ponemos una coma, finalmente ponemos un WHERE donde haremos referencia a una condicion aprticular para que estos campos se acgtualizen.
@@ -9,6 +29,19 @@ Para actualizar informacion utilizamos esta sentencia,en la primera parte ponemo
 UPDATE HR.EMPLOYEES
 SET HIRE_DATE = '29-JAN-18'
 WHERE EMPLOYEE_ID = 207;
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Eliminar una tabla.
+
+DELETE FROM HR.DEPARTMENTS
+WHERE DEPARTMENT_NAME = 'FINANCE';
+
+
+-------------------------------------------------------------------------------------------------------------
+con truncate podemos eliminar todos los datos de una tabla, pero su estructura queda intacta incluso los disparadores.
+
+TRUNCATE TABLE COPY_EMP;
 
 -------------------------------------------------------------------------------------------------------
 Crear tabla: (Su estructura en ingles te dice como irla creando, tenemos que poner el nombre del capo y el valor, dentro de un parentesis podemos explicar hasta que tamaño maximo.)
