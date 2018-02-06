@@ -78,3 +78,6 @@ HAVING MIN(SALARY) >(SELECT MIN(SALARY)
 
 
 https://www.youtube.com/watch?v=rGPb5E1UAJA
+
+
+dasdasdasdsa
