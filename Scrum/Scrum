@@ -1,0 +1,178 @@
+Que es scrum ?---------------------------------------------------------------
+
+Scrum es un marco de gestion para el desarrolo incremental de productos, valiendose de uno o mas equipos multi-funcionales, que ellos mismos se organizan , este equipo no puede ser muy grande, por lo que se recomienda que sea un grupo de 7 personas.
+
+Este marco de gestion proprociona un estructura de roles, reuniones , reglas y artefactos, el mismo equipo se encarga de crear y adaptar todas las tareas y proceso dentro de este marco.
+
+Scrum utiliza cortes fijos que les llama 'Sprints', noramlmente son de dos semanas o 30 dias de duracion, los equipos scrum intentan crear productos potencialmente entregables en ese plaso de tiempo.
+
+Scrum o cascada ?------------------------------------------------------------
+
+La forma en como trabaja scrum cambia las fases tradicionales del desarrollo por casacada, por el detalle de que scrum trabaja con subconjunto de caracteristicas de alto valor y se da el lujo de meter feeback en momentos muy tempranos del proyecto.
+
+Para poder desarrollar en casacada es necesario tener una comprecion alta de todos los requisitos del producto desde el principio y no tener errores por cada face que pasamos, debido a que una vez pasada una fase no podremos volver.
+
+Scrum se da el lujo de combinar todas las actividades del desarrollo en cada iteracion, de esta forma se puede adaptar a las realidades emerfentes en cada fin de intervalo.
+
+La mayor ventaja que tiene scrum es cuando se trabaja en complejo, esto implica la creacion de conocimiento y colaboracion, tal como sucede en el desarrollo de uevos productos, su uso tambien se a expandido para la creacion de productos fisicos.
+
+Haciendo Scrum o pretendiendo hacer scrum?-----------------------------------
+
+Muchas veces los chequeos de realidad incesantes de Scrum exponen las limitaciones sifuncionales en los individuos, equipos y organizaciones, algunas personas que dicen hacer Scrum modifican las aprtes que requieren traspasar los impedimientos organizacionales y temrinan privadose a si mismos de la mayoria de los beneficios.
+
+ROLES------------------------------------------------------------------------
+
+Como comentamos anteriomente la estructur Scrum mete un sistema de roles al desarollo de software:
+
+
+PRODUCT OWNER::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+-Única persona responsable de maximizar el retorno de la inversión (ROI) del esfuerzo de desarrollo.
+
+-Responsable de la visión del producto.
+
+-Constantemente re-prioriza el Backlog del Producto, ajustando las expectativas a largo plazo, como los planes de liberaciones.
+
+-Es el árbitro final de las preguntas sobre requerimiento.
+
+-Acepta o rechaza cada incremento del producto.
+
+-Decide si se debe liberar.
+
+-Decide si se debe continuar con el desarrollo.
+
+-Considera los intereses de los stakeholders(Personas que son afectadas o pueden ser afectadas por las actividades de una empresa o proyecto).
+
+-Puede contribuir como miembro del equipo.
+
+-Tiene un papel de liderazgo.
+
+
+EQUIPO DE DESAROLLO DE SCRUM:::::::::::::::::::::::::::::::::::::::::::::::::
+
+-Multifuncional (incluye miembros con habilidades de testing y a menudo otros no llamados tradicionalmente desarrolladores: analistas de negocio, expertos de dominio, etc.)
+
+-Auto-organizado/auto-gestionado, sin roles asignados externamente.
+
+-Negocia los compromisos con el Product Owner, de un Sprint a la vez.
+
+-Tiene autonomía con respecto a la forma de lograr sus compromisos.
+
+-Intensamente colaborativo.
+
+-Tiene mayor probabilidad de éxito al encontrarse establecido en un mismo lugar, sobre todo para los primeros Sprints.
+
+-Tiene más éxito si el involucramiento con el equipo es a largo plazo y full-time. Scrum promueve evitar el traslado de personas o dividirlas entre otros equipos.
+
+-7 ± 2 miembros.
+
+-Tiene un papel de liderazgo.
+
+SCRUM MASTER:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+-Facilita el proceso de Scrum.
+
+-Ayuda a resolver los impedimentos.
+
+-Crea un ambiente propicio para la auto-organización del equipo.
+
+-Captura datos empíricos para ajustar las previsiones.
+
+-Protege al equipo de interferencias externas y distracciones para mantener el flujo del equipo (también conocido como la zona)
+
+-Aplica los timeboxes.
+
+-Mantiene visibles los artefactos Scrum.
+
+-Promueve la mejora de las prácticas de ingeniería.
+
+-No tiene autoridad en la gestión del equipo (cualquier persona que tenga autoridad sobre el equipo no es, por definición, su ScrumMaster)
+
+-Tiene un papel de liderazgo.
+
+
+Reuniones de Scrum-----------------------------------------------------------
+
+Todas las reuniones del Scrum son facilitadas por el SCRUM MASTER, quien no tiene autoridad para tomar decisiones en ellas.
+
+Reunion de planifiacion de Sprint:::::::::::::::::::::::::::::::::::::::::::
+
+
+Cada vez que se comienza un Sprint, el Product Owner y el equipo de dasarollo tienen una reunion de planificacion del Sprint, en esta reunion se negocia que items del backlog(Lista de tareas que el equipo elabora en la reunión de planificación de la iteración (Sprint planning) como plan para completar los objetivos/requisitos seleccionados para la iteración y que se compromete a demostrar al cliente al finalizar la iteración, en forma de incremento de producto preparado para ser entregado.) se intentaran convertir en producto funcionando durante el Sprint. En esta reunion el Product Owner es el responsable de declarar cuales son los items mas importantes para el negocio, mientras que el equipo es el resposable de seleccionar cuanto trabajo sera capaz de realizar sin acumular deuda tecnica. El equipo toma el trabajo desde el PRODUCT BACKLOG hacia el SPRINT BACKLOG( lista de tareas que se lelvaran a cabo en el Sprint)
+
+El equipo tiene que trabajar en equipo para poder llevar a cabo trabajos complejos que puedan ocacionar incertidumbre, el equipo tiene que aprender de los errores y ventajas que an tenido de los anteriores Sprint.
+
+Si la parte superior del BACKLOG del producto no ha sido refinada, una parte importante de la reunion de planifiacion se debe dedicar a esto, tal como se describe en la seccion de la reunion de refinamiento del backlog.
+
+Hacia el final de la reunion de planifiacion del Sprint, el equipo desglosa los items seleccionados en una lsita inicial de tareas del sprint (Sprint TASK) y hace un compromiso final para realizar el trabjao.
+
+El tiempo maximo asignado (tambien conocido como timebox) para la planificacion de un Sprint de 30 dias, es de ocho horas, reduciendo proporcionalmente en caso de un Sprint mas corto
+
+Daily Scrum y Ehecucion del Sprrint:::::::::::::::::::::::::::::::::::::::::
+
+Cada dia, a la misma hora, y en el mismosmo lugar, los miembros del equipo de dsarollo pasan 15 mintuso reportandose entre si, cada miembro del equipo notifica que fue lo que hizo el dia anterior, lo que hara hoy y los impedimientos que esta enfrentando.
+
+Es recomendable estar de pie en el Daily Scrum para ayudar a que sea breve la reunion, los temas con mayor prioridad pueden ser discutidos despues de que cada miembro del equipo haya reportado lo suyo.
+
+Al equipo le puede resultar muy util tener a la mano la lsita de tareas del Sprint, el Sprint Burndown Chart, y un listado de impedimientos, durante la ejecucion del Sprint es comun descubrir tareas adicionales necesarias para alcanzar las metas del Sprint.
+
+Para el Product Owner, casi siempre es util asistir a la Daily Scrum, las Daily Scrum tiene la intencion de alterar los viejos habitos de trabajo por separado. Los miembros deben permanecer atentos para detectar signos de la antigua estrategia, como por ejemplo mirar solo al Scrum Master cuando se habla es un sintoma de que el equipo no ha aprendido a operar como una entidad auto-organizativa.
+
+Reunion de Revision del Sprint::::::::::::::::::::::::::::::::::::::::::::::
+
+Despues de que el Sprint se ejecuta el equipo queda de hacer una reunion de revision del Sprint para mostrar cuando llevan avanzado y crecimiento del producto al PRODUCT OWNER y a todos los demas interesados, esta reunion debe ofrecer una desmotracion en vivo, no un informe.
+
+Despues de la demostracion , el PRODUCT OWNER revisa los compromisos contraidos en la reuinon que se hizo anteriormente , es decir la Planificaicon del Sprint y delcara que items considera termiandos.
+
+El Scrum Master ayuda al Product Owner y a los Stackholders a convertir su feedback en los nuevos elementos del ProductBacklog o Product Bacjlog items para su priorizaciion por el Product Owner. A menudo descrubir nuevo alcance supera la tasa del equipo de desarollo.
+
+La reunion de revision de Psrint es el encuentro apropiado para los StakeHolders(Incluso a los usuarios finales). Es la oportunidad de revisar y adaptar el producto a medida que emerge y de forma interativa refinar la compresion de cada uno de los requisitos. Es dificil visualizar una pieza de software, por lo que muchos clientes necesitan ser capaces de reaccionar ante una pieza de software que funcione para describir lo que realmente quieren.
+
+Reunion de Retrospectiva del Sprint:::::::::::::::::::::::::::::::::::::::::
+
+Despues de que cada Sprint finalize, el equipo tiene que hacer una restrospectiva del proceso de ese Sprint, en esta reunion el equipo evalua sobre su propio proceso, inpescciona el comportamiento que tuvieron, las medidas que adoptaron para poder aplicarlo a los futuros Sprints.
+
+Para llevar a cabo una reunion de retrospectiva es necesario que el Scrum Master encuentre alternativas a las renuones obsoletas, ya que una renuon de retrospectiva podria crear discusiones incomodas crear culpa y hostilidad.
+
+Otro impedimento para una retrospectiva profunda es la tendencia humana a sacar conclusiones y proponer acciones con rapidez.
+
+Un detalle que da muchos impedimientos a la seguridad psicologia es la distribucion geografica. Equipos dispersos geograficamente por lo general no colaboran. Es mucho mejor comprartir una sala de quipo.
+
+El SCRUM MASTER es el encargado de que la junta de retrospectiva se lleve a cabo con la mayor salud psicologica posible, haciendo varias dinamicas como redaccion en silencio, lineas de tiempo e histogramas de satisfaccion.
+
+REUNION DE REGINAMIENTO DEL BACKLOG:::::::::::::::::::::::::::::::::::::::::
+
+En esta reunion, el equipo estima la cantidad de esfuerzo que se debe invertir para completar los items del BACJLOG DEL PRODUCTO y proporciona informacion tecnica para ayudar al Product Owner a priorizarlos. Los grandes ítems se dividen y se clarifican, teniendo en cuenta temas tanto de negocio como técnicos. A veces, un subconjunto del equipo, junto con el Product Owner y los stakeholders, descomponen y dividen los ítems del Backlog del Producto antes de involucrar a todo el equipo en la estimación.
+
+ARTEFACTOS DE SCRUM:::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Backlog del Producto <------------
+
+El item de mas arriba es el que tiene la maxima prioridad y solo puede haber uno, los items de mas arriba son mas granulares.
+
+-Lista ordenada de funcionalidad deseada
+
+-Visible para todos los stakeholders
+
+-Cualquier stakeholder (incluido el equipo) puede agregar ítems
+
+-Constantemente re-priorizado por el Product Owner
+
+-Los Ítems superiores son más granulares que los inferiores
+
+-Mantenido durante la reunión de Refinamiento del Backlog
+
+Ítems del Backlog del Producto (PBIs) <------------
+
+-Especifica el qué más que el cómo de una característica centrada en el cliente
+
+-A menudo escrita en forma de Historia de Usuario
+
+-Tiene una definición de “terminado” abarcadora de todo el producto para evitar la deuda técnica
+
+-Puede tener criterios de aceptación específicos del ítem
+
+-El esfuerzo es calculado por el equipo, de preferencia en unidades 
+relativas (por ejemplo, puntos de la historia)
+
+-El esfuerzo es de aproximadamente 2-3 personas 2-3 días, o menos para equipos más avanzados

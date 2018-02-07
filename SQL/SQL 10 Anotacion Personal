@@ -1,0 +1,82 @@
+Esta es la forma de crear una vista, que simplemente es un proceso que se guarda en una vista y se puede acceder a el como si fuera una tabla normal.
+
+CREATE VIEW 	empvu802
+ AS SELECT employee_id, last_name, salary,DEPARTMENT_ID
+  FROM  HR.EMPLOYEES
+  WHERE  department_id = 80;
+ 
+
+
+ De esta forma accedemos a la informacion de la vista y su contenido.
+  
+  SELECT * FROM EMPVU802;
+
+
+
+En esta situacion estamos mandando a llamar la vista y aparte estamos condicionando que de los resultados que nos va a devolver queremos que solo los salarios mayores a 10,000 sean impresos.
+  SELECT * FROM EMPVU802 where salary > 10000;
+
+
+
+
+  Esto nos permite consultar la estructura de nuestra vista, que campos va a retornar y de ue tipo.
+  DESCRIBE empvu802;
+
+
+
+
+Esto es utilizado para eliminar una vista previamente creada.
+  DROP VIEW view; 
+
+
+
+
+Aqui creamos una vista la cual cuenta con una union de dos tablas utilizando where y estamos cambiando el nombre de los campos con la segunda linea de codigo, utiliza este metodo de union solo con tablas que tienen llave foranea.
+
+  CREATE VIEW	dept_sum_vu 
+ (name, minsal, maxsal, avgsal) 
+AS SELECT	 HR.DEPARTMENTS.department_name, MIN(HR.EMPLOYEES.salary), 
+       MAX(HR.EMPLOYEES.salary),AVG(HR.EMPLOYEES.salary) 
+  FROM   HR.employees,HR.departments
+  WHERE   HR.EMPLOYEES.department_id = HR.DEPARTMENTS.department_id 
+  GROUP BY HR.DEPARTMENTS.department_name;
+
+
+
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Aqui estamos creando una secuencia, por el momento esta secuencia sirve para crear llaves o identificadores, le decimos que ira en incrementos de 10, iniciando con el numero 300 y llegara a un valor maximo de 9999.
+
+  CREATE SEQUENCE dept_deptid_seq 
+        INCREMENT BY 10 
+        START WITH 300 
+        MAXVALUE 9999 
+        NOCACHE 
+        NOCYCLE;
+        
+        
+        Con este comando podemos avanzar en las ecuencia, para que la siguiente generacion sea diferente
+
+        SELECT	dept_deptid_seq.NEXTVAL FROM  dual;
+
+        Con esta podemos ver el valor actual de la secuencia.
+        
+        SELECT	dept_deptid_seq.Currval FROM  dual;
+        
+ 
+
+ Aqui estamos haciendo una insercion de un dato en la tabla utilizando la secuencia que creamos previamente para hacer la llave.
+
+INSERT INTO HR.DEPARTMENTS(department_id, 
+      department_name,manager_id,location_id) 
+VALUES   (dept_deptid_seq.NEXTVAL, 
+      'Support',200, 2500);
+
+
+Con este comando podemos eliminar las sentencias que creamos.
+
+DROP SEQUENCE dept_deptid_seq;
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
