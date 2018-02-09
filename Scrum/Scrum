@@ -176,3 +176,105 @@ El item de mas arriba es el que tiene la maxima prioridad y solo puede haber uno
 relativas (por ejemplo, puntos de la historia)
 
 -El esfuerzo es de aproximadamente 2-3 personas 2-3 días, o menos para equipos más avanzados
+
+Backlog del Sprint <------------
+
+-Consiste en PBIs comprometidos negociados entre el equipo y el Product Owner durante la Reunión de Planificación del Sprint
+
+-El alcance comprometido es fijo durante la ejecución del Sprint
+
+-Las tareas iniciales son identificadas por el equipo durante la reunión de planificación del Sprint
+
+-El equipo descubrirá las tareas adicionales necesarias para cumplir con el compromiso de alcance fijo durante la ejecución de Sprint
+
+-Visible para el equipo
+
+-Referenciado durante la Daily Scrum Meeting
+
+Tareas del Sprint <------------
+
+-Especifica cómo alcanzar el qué del PBI
+
+-Requiere aproximadamente un día de trabajo
+
+-El esfuerzo restante se re-estima a diario, por lo general en horas
+
+-Durante la ejecución de Sprint, una persona de contacto puede ofrecerse 
+para ser el principal responsable de una tarea
+
+-Propiedad de todo el equipo, se espera colaboración
+
+Sprint Burndown Chart <------------
+
+-Indica el total de horas restantes de las tareas del equipo dentro de un Sprint
+
+-Re-estimado a diario, por lo tanto puede subir antes de bajar
+
+-Diseñado para facilitar la auto-organización del equipo
+
+-Algunas variaciones, como agrupar por persona de contacto o agregando tendencias, tiende a reducir su efectividad para fomentar la colaboración
+
+-Parecía una buena idea en los primeros días de Scrum, pero en la práctica ha sido a menudo mal utilizada como un informe de gestión, invitando a la intervención.
+
+-El Scrum Master debe descontinuar el uso de esta tabla si se convierte en un impedimento para la autoorganización del equipo
+
+Product / Release Burndown Chart <------------
+
+-Realiza un seguimiento del esfuerzo restante del Product Backlog de un Sprint al próximo
+
+-Puede utilizar unidades relativas como Puntos de Historia en el eje Y
+
+-Utiliza tendencias históricas para ajustar las previsiones
+
+Escalamiento----------------------------------------------------------------
+
+Malas noticias: es duro:::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Scrum aborda los requisitos inciertos y los riesgos tecnicos mediante la agrupacion de personas de multiples disciplinas en un solo equipo(idealmente en una unica sala) de esta forma tenemos una mayor comunicacion, visibilidad y confianza.
+
+Cuando los requisitos son inciertos y los riesgos tencicos son altos, agregar mucha gente a la situaicon empeora las cosas, agrupar personas por especialidad tambien empeora las cosas, agrupar a las personas por los componentes arquitectonicos como equipos de componentes,empeora las cosas con el tiempo.
+
+Buenas noticias: equipos de caracteristicas:::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Para poder solucionar el problema, de no ser lo suficientemente eficientes para resolver un problema tecnico etc..., se crean equpos de caracteristicas, ellos son totlamente multi-funcionales, capaces de operar en todas las capas de la arquitectura con el fin de ofrecer las caracteristicas centradas en el cliente. En un gran sistema, esto requiere aprender nuevas habilidades. Mientras que el equipo se centra en el aprendizaje se crean organizaciones de aprendizaje.
+
+Sin embargo la agilidad representa un desafio particularmente para las grandes organizaciones. Creyendo hacer scrum, muchas no han logrado superalos.Los Scrum Masters de las grandes organizaciones debian reunirse con regularidad, promoviendo la trasnformacion a traves de una lista visible de los impedimientos de organizacion, y leer libros como scaling lean y agile development.
+
+Practicas relacionadas----------------------------------------------------------------
+
+
+Lean:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Scrum es un marco de gestion general, que tiene mucha particularidad con el movmiento agil del desarollo de software, esta inspirado en parte por metodos de fabricacion Lean como el Sistema de produccion Toyota.
+
+eXtreme Programming (XP):::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Como Scrum no establece las practicas especificas de ingenieria, los Scrum Masters son responsables de promover un mayor rigor en la definicion de "terminado". El scrum Master puede inspirar al equipo a aprender diversas practicas de ingenieria.
+
+Equipos Auto-Organizados-----------------------------------------------------------
+
+Los equipos comprometidos superan a los equipos manipulados::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Durante la ejecucion del Sprint, los miembros del equipo comienzan a desarrollar un interes intriseco en objetivos compartidos y parenden a gestionarse para alcanzarlos, esto permite que los equipos se conviertan en auto-organizados, en lugar de quipos manipulados por castigos o recompensas extrinsecas. La observacion del Scrum Master y las habilidades de persuasion aumentan la probabilidad de exito a pesar de la incomodidad inicial.
+
+Desafíos y oportunidades:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+En terminos de desempeño, los equipos auto-organizados pueden superar radicalmente a los equipos tradicionales. Los grupos de tamaño familiar se auto-organizan naturalmente cuando se reunen ciertas condiciones:
+
+-Los miembros se comprometen a metas claras y de corto plazo
+
+-Los miembros pueden evaluar el progreso del equipo
+
+-Los miembros pueden observar la contribución de los otros miembros
+
+-Los miembros se sienten seguros de dar su opinión sin tapujos
+
+Segun el psicologo Bruce Tuckman describe las etapas de desarollo dele quipo como Froming, Storming, norming, perfoming, llegar a la automatizacion optima lleva su tiempo, e inclso durante las iteraciones tempranas surgen muchos conflictos y un desempeño peor. Los desacuerdos son habituales y saludables en un equipo comprometido, sin embargo no se miede el rendimiento de un equipo por la cantidad de conflictos o desacuerdos que puede tener, se mide por la capacidad que tienen para encargarse de ellos.
+
+Otro detalle es la mensionada manzana podrida, si uno de los miembros no aporta valor al equipo, es muy negativo o viola muchas normas puestas por el equipo, puede reducir considerablemente el rendimiento del equipo, por ello es que el equipo tiene el poder de decidir quienes se uniran a ellos como equipo de desarollo.
+
+La auto-organizacion se ve obstaculizada por condiciones tales como la distribucion gografica, dinamicas del jefe/trabajador, miembros del equipo Part-time y las interrupciones no relacionadas con los objetivos de sprint, el Scrum Master es quien se encarga de evitar todas estas distracciones.
+
+Cuando es apropiado Scrum?-----------------------------------------------------------------------------
+
+Scrum se aplica a los tipos de trabajo que las personas han concontrado dificil de manejar con procesos definidos, euq incluyen requisitos inciertos combinados con riesgos impredecibles en la tecnologia de aplicacion. Scrom permite crear mecanismos de creacion de conocimiento y colabroacion debido a que Scrom nunca fu epensado para los tipos repetitivos de produccion y servicios.
