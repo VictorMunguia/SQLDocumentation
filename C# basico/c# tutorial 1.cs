@@ -777,6 +777,266 @@ namespace HelloWorld
 
 
 
+//En este ejemplo tenemos un arraylist y una list
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections;
+
+namespace TrabajandoConColecciones
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            car carro1 = new car();
+            car carro2 = new car();
+            Libro libro1 = new Libro();
+
+            carro1.HACEDOR = "Oldmobile";
+            carro1.MODELO = "Cutlas supreme";
+
+            carro2.HACEDOR = "Geo";
+            carro2.MODELO = "Prism";
+
+            libro1.AUTOR = "Robert Tabor";
+            libro1.TITULO = "Microsoft .NET xml web services";
+            libro1.ENC_ISBN = "8,0000,0000,000";
+
+            ArrayList MiArrayList = new ArrayList();//La arraylist nos permite agregar todo tipo de elementos pero es poco segura es mejor usar las listas
+            List<car> lista1carro = new List<car>();//se decalara de esta manera una lista y tenemos que espesiciar entre los <> el tipo de objetos que va a almacenar las listas
+
+            lista1carro.Add(carro1);//Se agregan elementos de esta manera , para los dos casos es igual
+
+            MiArrayList.Add(carro1);
+            MiArrayList.Add(carro2);
+
+
+            //Para recorrer la lista y la arraylist usamos un foreach, es mas sencillo.
+            foreach (car car in MiArrayList)
+            {
+                Console.WriteLine(car.HACEDOR);
+            }
+            Console.ReadLine();
+
+            foreach (car car in lista1carro)
+            {
+                Console.WriteLine(car.MODELO);
+            }
+            Console.ReadLine();
+
+
+        }
+
+
+        class car
+        {
+            private string Hacedor;
+            private string Modelo;
+
+            public string HACEDOR
+
+            {
+
+                get { return Hacedor; }
+
+                set { Hacedor = value; }
+
+            }
+
+
+            public string MODELO
+            {
+
+                get { return Modelo; }
+
+                set { Modelo = value; }
+            }
+        }
+
+        class Libro
+        {
+            private string Titulo;
+            private string ISBN;
+            private string Autor;
+
+            public string AUTOR
+            {
+                
+                get { return Autor; }
+                set { Autor = value; }
+            }
+
+            public string TITULO
+
+            {
+
+                get { return Titulo; }
+
+                set { Titulo = value; }
+
+            }
+
+
+            public string ENC_ISBN
+            {
+
+                get { return ISBN; }
+
+                set { ISBN = value; }
+            }
+        }
+    }
+}
+
+
+
+//Utilizando el LINQ-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Collections;
+using BuscadorWeb2;
+
+namespace TrabajandoConColecciones
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+        	//Esta es una forma de crear una lista llenandola al mismo tiempo de objetos tipo carro, con esto ya no es necesario nombrar cada objeto, la lista se encarga de identificarlos por su posicion
+            List<car> ListaCarro = new List<car>()
+            {
+                new car(){ENC_VIN = "A1", HACEDOR = "BMW", MODELO = "550I",PRECIO = 150000,AÑO = 2000 },
+                new car(){ENC_VIN = "B1", HACEDOR = "AWC", MODELO = "450I",PRECIO = 250000,AÑO = 2001 },
+                new car(){ENC_VIN = "C1", HACEDOR = "CMW", MODELO = "250I",PRECIO = 300000,AÑO = 2002 },
+                new car(){ENC_VIN = "D1", HACEDOR = "DMW", MODELO = "150I",PRECIO = 350000,AÑO = 2003 },
+                new car(){ENC_VIN = "E1", HACEDOR = "FMW", MODELO = "A50I",PRECIO = 400000,AÑO = 2004 },
+                new car(){ENC_VIN = "F1", HACEDOR = "GMW", MODELO = "D50I",PRECIO = 450000,AÑO = 2010 },
+                new car(){ENC_VIN = "G1", HACEDOR = "HMW", MODELO = "G50I",PRECIO = 500000,AÑO = 2015 },
+                new car(){ENC_VIN = "H1", HACEDOR = "JMW", MODELO = "H50I",PRECIO = 550000,AÑO = 2020 }
+            };
+
+
+            //LINQ query
+            //Ponemos condiciones y ubicaciones como si se tratara de una sentencia SQL, 
+
+            var queryLINQ = from car in ListaCarro
+                            where car.HACEDOR != "BMW"
+                            && car.AÑO > 2003
+                            select car;
+
+
+            //LINQ Metodo
+            //Simple metodo para recorrer el queryLINQ, parece que es una lista, y se llena a vace de la comparacion de la lsita car, todo similar.
+            foreach(var car in queryLINQ)
+            {
+                Console.WriteLine("{0} {1} {2}", car.ENC_VIN, car.AÑO, car.HACEDOR);
+            }
+            Console.ReadLine();
+
+
+        }
+
+        //tODO LO QUE TENEMOS ABAJO DE ESTO SON LA CLASE CAR Y LIBRO LAS CUALES TIENENE ATRIBUTOS PRIVADOS Y SUS RESPECTIVOS METODOS ENCAPSULADOS PARA ACCEDER A SUS ATRIBUTOS
+
+        class car
+        {
+            private int Precio;
+            private int año;
+            private string VIN;
+            private string Hacedor;
+            private string Modelo;
+
+            public int AÑO
+            {
+                get { return año; }
+                set { año = value; }
+            }
+
+            public int PRECIO
+            {
+                get { return Precio; }
+                set { Precio = value; }
+            }
+
+            public string ENC_VIN
+
+            {
+
+                get { return VIN; }
+
+                set { VIN = value; }
+
+            }
+
+            public string HACEDOR
+
+            {
+
+                get { return Hacedor; }
+
+                set { Hacedor = value; }
+
+            }
+
+
+
+            public string MODELO
+            {
+
+                get { return Modelo; }
+
+                set { Modelo = value; }
+            }
+        }
+
+        class Libro
+        {
+            private string Titulo;
+            private string ISBN;
+            private string Autor;
+
+            public string AUTOR
+            {
+                
+                get { return Autor; }
+                set { Autor = value; }
+            }
+
+            public string TITULO
+
+            {
+
+                get { return Titulo; }
+
+                set { Titulo = value; }
+
+            }
+
+
+            public string ENC_ISBN
+            {
+
+                get { return ISBN; }
+
+                set { ISBN = value; }
+            }
+        }
+    }
+}
+
+
 
 
 https://mva.microsoft.com/en-US/training-courses/c-fundamentals-for-absolute-beginners-16169?l=Y6D7PQQIC_5406218949--------------------------------------------------
