@@ -541,25 +541,18 @@ string Nombre = "Mi nombre es \"victor Munguia Enciso\"es" ;
 
 
 
+//COdigo que crea un objeto tipo car y lo mandamos a llamar, hay que investigar constructores nada mas.-----------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-  //Video 14
-
-
-            static void Main(string[] args)
-        {
-
-            car NuevoCarro = new car();
-            NuevoCarro.Empresa = "Chebrolet";
-            NuevoCarro.Modelo = "Mustang";
-            NuevoCarro.Año = 2018;
-            NuevoCarro.Color = "Pinchi Rojo";
-
-
-            Console.WriteLine({ } { } { } { });
-
-        }
-
+namespace Classes
+{
+    class Program
+    {
 
 
         class car
@@ -569,6 +562,24 @@ string Nombre = "Mi nombre es \"victor Munguia Enciso\"es" ;
             public int Año { get; set; }
             public string Color { get; set; }
         }
+
+        static void Main(string[] args)
+        {
+
+
+            car NuevoCarro = new car();
+            NuevoCarro.Empresa = "Chebrolet";
+            NuevoCarro.Modelo = "Mustang";
+            NuevoCarro.Año = 2018;
+            NuevoCarro.Color = "Pinchi Rojo";
+
+
+            Console.WriteLine("{0} {1} {2} {3}",NuevoCarro.Empresa,NuevoCarro.Modelo,NuevoCarro.Año,NuevoCarro.Color);
+            Console.ReadLine();
+
+        }
+    }
+}
 
 
 
