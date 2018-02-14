@@ -584,4 +584,201 @@ namespace Classes
 
 
 
+//Recuerda el contexto, donde declaras las variables depende de donde puedes usarlas, a esto se le llama SCOPE----------------------------------------------------
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int z = 2;
+
+            for(int a = 0; a < 10; a++)
+            {
+                int b = 1;
+                Console.WriteLine(a);
+            }
+            Console.ReadLine();
+
+            Console.WriteLine(b);//No se puede usar debido a que esta solo declarada dentro del ciclo for
+            Console.WriteLine(z);//Se puede usar debido a que se declara a nivel main y se peude usar dentro del ciclo y fuera de.
+
+
+        }
+    }
+}
+
+
+
+
+
+
+//Ejemplo de encapsulacion.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HelloWorld
+{
+    class Program
+    {
+
+
+    	//Clase carro, tenemos asignados variables privadas las cuales solo pueden ser tocadas con los metdodos que creamos.
+        class car
+        {
+
+
+            private string Nombre;
+            private string Apellido;
+            private string Edad;
+
+
+            //Metodo nombre que contiene un get para sacar la informacion y un set para introducirla.
+            public string NOMBRE
+
+            {
+
+                get { return Nombre; }
+
+                set { Nombre = value; }
+
+            }
+
+            public string APELLIDO
+
+            {
+
+                get { return Apellido; }
+
+                set { Apellido = value; }
+
+            }
+
+            public string EDAD
+
+            {
+
+                get { return Edad; }
+
+                set { Edad = value; }
+
+            }
+
+            //Tenemos dos metodos, uno privado y otro publico, en privado no se peude acceder en ningun momento en el contexto principal del programa
+            //sin embargo si se peude acceder a un metodo privado en su propia clase.
+            public void DoSomething()
+            {
+                Console.WriteLine(MetodoAyuda());
+            }
+
+            private string MetodoAyuda()
+            {
+                return "Hello world¡";
+            }
+
+
+        }
+
+        static void Main(string[] args)
+        {
+            car CarroNuevo = new car();
+
+            CarroNuevo.APELLIDO = "Munguia";
+
+
+            string Apellido = CarroNuevo.APELLIDO;
+            Console.WriteLine(Apellido);
+            Console.ReadLine();
+
+        }
+    }
+}
+
+
+
+
+
+//Tenemos un ejemplo de como usar las librerias que tenemos arriba de cada proyecto y como guardar un archivo de texto desde .NET--------------------------------
+
+using System; //Esta libreria nos permite acceder a los componentes System sin necesidad de poner System.Console
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using System.IO;//El comnado para guardar archivos de texto lleva System.IO pero al poner la libreria aqui ya no es necesario.
+
+namespace HelloWorld
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            string TextoDocumento = "Mi nombre es victor munguia enciso y la ando cagando recio en el amor";
+            Console.WriteLine("");
+
+            File.WriteAllText(@"C:\Users\vMunguia\Desktop", TextoDocumento); //Esta linea de codigo gracias a la libreria no lleva System.IO.
+
+            Console.WriteLine("Echo");
+            Console.ReadLine();
+        }
+    }
+}
+
+
+
+
+
+//Codigo para sacar el HTML de una pagina en formato string
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using System.IO;
+using System.Net;//Nueva libreria que nos permite usar la clase WebClient
+
+namespace HelloWorld
+{
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+
+
+            WebClient client = new WebClient();//Esta clase, al tener acceso a la clase tenemosa acceso a los metodos
+
+            string reply = client.DownloadString("http://rogerdudler.github.io/git-guide/index.es.html"); // Estos metodos XD
+
+            Console.WriteLine(reply);
+            Console.ReadLine();
+        }
+    }
+}
+
+
+
+
+
 https://mva.microsoft.com/en-US/training-courses/c-fundamentals-for-absolute-beginners-16169?l=Y6D7PQQIC_5406218949--------------------------------------------------
+
+http://undiaparahablar.blogspot.mx/2010/02/polimorfismo.html--------------------- Exelente ejemplo de programacion orientada a objetos
