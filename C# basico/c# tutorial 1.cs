@@ -1038,6 +1038,169 @@ namespace TrabajandoConColecciones
 
 
 
+//Switch y enumeracion
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NumeracionSwitch
+{
+    class Program
+    {
+
+
+    	//Tenemos la clase todo, donde tenemos nuestros metodos encapsulados para acceder a nuestros atributos.
+        class Todo
+        {
+
+            private string Descripcion;
+            private int HorasEstimadas;
+            private Status Estatus;
+
+            public string DESCRIPCION
+            {
+
+                get { return Descripcion; }
+
+                set { Descripcion = value; }
+            }
+
+            public int HORAESTIMADA
+            {
+
+                get { return HorasEstimadas; }
+
+                set { HorasEstimadas = value; }
+            }
+
+            public Status ESTATUS
+            {
+
+                get { return Estatus; }
+
+                set { Estatus = value; }
+            }
+
+        }
+
+        //Tenemos un metodo de enmueracion, podemos asignar palabras y c# les asigna un numero (Un valor)
+        enum Status
+        {
+            SinIniciar,
+            EnProgueso,
+            EnEspera,
+            Completo,
+            Eliminado
+        }
+
+        //Creamos un metodo que no regresa nada y pedimos un objeto tipo Todo el cual sera la lsita que tiene nuestros campos
+        private static void PrintAssessment(List<Todo> x)
+        {
+        	//Creamos un foreeach donde metemos una variable que representa nuestra lista que va a recorrer nuestra lista la cual es la X
+            foreach(Todo todos in x)
+            {
+            	//en este switch condicionamos que cada registro dependiendo del tipo de status es el color que va a imprimir el texto
+                switch (todos.ESTATUS)
+                {
+
+                    case Status.Completo:
+                        {
+                            Console.ForegroundColor = ConsoleColor.Blue;
+                            break;
+                        }
+                    case Status.Eliminado:
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkCyan;
+                            break;
+                        }
+                    case Status.EnEspera:
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            break;
+                        }
+                    case Status.EnProgueso:
+                        {
+                            Console.ForegroundColor = ConsoleColor.Gray;
+                            break;
+                        }
+                    case Status.SinIniciar:
+                        {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            break;
+                        }
+
+
+                }
+                Console.WriteLine(todos.DESCRIPCION);
+            }
+        }
+
+
+        //Centro dle programa
+        static void Main(string[] args)
+        {
+        	//Creamos una lista y la llenamos 
+            List<Todo> Todos = new List<Todo>()
+            {
+            	//Aqui llenamos la lista, y en el atributo status estamos poniendo el nombre del contador para que nos detecte las palabras que pusmios
+                new Todo(){DESCRIPCION = "Tarea1", HORAESTIMADA = 6, ESTATUS = Status.Completo},
+                new Todo(){DESCRIPCION = "Tarea2", HORAESTIMADA = 16, ESTATUS = Status.Eliminado},
+                new Todo(){DESCRIPCION = "Tarea3", HORAESTIMADA = 3, ESTATUS = Status.EnEspera},
+                new Todo(){DESCRIPCION = "Tarea4", HORAESTIMADA = 1, ESTATUS = Status.EnProgueso},
+                new Todo(){DESCRIPCION = "Tarea5", HORAESTIMADA = 4, ESTATUS = Status.SinIniciar},
+                new Todo(){DESCRIPCION = "Tarea6", HORAESTIMADA = 9, ESTATUS = Status.Completo},
+                new Todo(){DESCRIPCION = "Tarea7", HORAESTIMADA = 12, ESTATUS = Status.Eliminado},
+                new Todo(){DESCRIPCION = "Tarea8", HORAESTIMADA = 1, ESTATUS = Status.EnEspera},
+                new Todo(){DESCRIPCION = "Tarea9", HORAESTIMADA = 6, ESTATUS = Status.EnProgueso}
+            };
+
+
+            
+            //Mandamos a llamar el metodo para imprimir los campos.
+            PrintAssessment(Todos);
+            Console.ReadLine();
+
+        }
+
+    }
+}
+
+
+//Timer
+
+using System;
+
+using System.Timers;
+
+namespace Eventos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Timer MiTimer = new Timer(2000);//Esto son 2 segundos
+
+            MiTimer.Elapsed += MiTimer_Elapsed;
+
+            MiTimer.Start();
+
+            Console.ReadLine();
+        }
+
+        private static void MiTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            Console.WriteLine("Elapsed: {0:HH:mm:ss.fff}", e.SignalTime);//Esto nos imprime el tiempo cada dos segundos
+        }
+    }
+}
+
+
+
+
 
 https://mva.microsoft.com/en-US/training-courses/c-fundamentals-for-absolute-beginners-16169?l=Y6D7PQQIC_5406218949--------------------------------------------------
 
