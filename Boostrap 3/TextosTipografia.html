@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Tipografias y texto</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="TextosTipografiaCss.css" media="screen" />
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div>
+				<div class="col-md-12">
+					<!-- Una etiqueta small boostrap lo toma como un texto secundario y le da un tamaño del 75% del texto normal que es el emcabezado -->
+					<h1>Encabezado h1<small> Texto Small</small></h1>
+					<h2>Encabezado h2<small> Texto Small</small></h2>
+					<h3>Encabezado h3<small> Texto Small</small></h3>
+					<h4>Encabezado h4<small> Texto Small</small></h4>
+					<h5>Encabezado h5<small> Texto Small</small></h5>
+					<h6>Encabezado h6<small> Texto Small</small></h6>
+					<h7>Encabezado h7<small> Texto Small</small></h7>
+					<!-- Poniendo una clase en un texto como h1 nos permite convertir el texto en h1 -->
+
+					<hr>
+					<p class="h1"> Parrafo con clase de encabezado</p>
+
+					<hr>
+				</div>
+
+				<div class="col-md-12">
+
+					<!-- Poner la clase de lead en un parraro (p) nos ayuda a agrandar un poco el texto, como haciendo un sub tema -->
+					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+					<!-- Esto subraya nuestro parrafo como si tuvieramos un marcatexto-->
+					<p><mark>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</mark></p>
+					<!-- Texto que fue eliminado-->
+					<p><del>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</del></p>
+					<!-- Texto que ya no es relevante, es lo mismo que arriba basicamente-->
+					<p><s>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</s></p>
+					<!-- Subraya el texto, igual que la etiqueta de abajo-->
+					<p><ins>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</ins></p>
+					<p><u>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</u></p>
+					<!-- La misma chingadera, imprime el 85% del tamaño normal-->
+					<p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</small></p>
+					<!-- Letras negritas-->
+					<p><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong></p>
+					<!-- Letras cursiva-->
+					<p><em>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</em></p>
+				</div>
+
+				
+
+				<div class="col-md-12">
+					<hr>
+					<p class="text-left">Izquierda - Lorem no se que madres blablabla esta bien chido</p>
+					<p class="text-right">Derecha - Lorem no se que madres blablabla esta bien chido</p>
+					<p class="text-center">Centrado - Lorem no se que madres blablabla esta bien chido</p>
+					<p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+					<hr>
+				</div>
+
+				<div class="col-md-12">
+					<p class="text-lowercase"> TEXTO A MINUSCULA </p>
+					<p class="text-uppercase"> texto a mayusculas </p>
+					<!-- Esto nos permite poner cada inicio de la palabra en mayuscula -->
+					<p class="text-capitalize"> Texto a capitales </p>
+					<hr>
+				</div>
+
+
+				<div class="col-md-12">
+					<!-- Esta etiqueta nos permite darle una apariencia de cita textual, todo lo que esta adentro con parrafo lo marca como un berso o algo, y poniendo un footer nos pone como el autor de la cita y finalmente con cite nos pone como la ubicacion. -->
+					<blockquote>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua.</p>
+						<footer> Victor Munguia  <cite>COCO.IO</cite> </footer>
+					</blockquote>
+					<!-- Es lo mismo pero con la etiqueta amarilla que puse volteo el texto -->
+					<blockquote class="blockquote-reverse">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua.</p>
+						<footer> Victor Munguia  <cite>COCO.IO</cite> </footer>
+					</blockquote>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC>
+<html xmlns=>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Factorial de un numero</title>
+ 
+<script type="text/javascript">
+var numero = prompt("Introduce un número y se mostrará su factorial");
+var resultado = 1;
+ 
+//for(var i=1; i<=numero; i++) {
+//  resultado *= i;
+//}
+factorialRecursivo(numero);
+
+function factorialRecursivo (n) {
+	var factorialTotal = 0; 
+	if (n == 0){ 
+		return 1; 
+	}
+	return (n * factorialRecursivo (n-1));
+
+}
+
+
+
+</script>
+</head>
+ 
+<body>
+</body>
+</html>

@@ -1,0 +1,18 @@
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+}
+
+body {
+	font-style: Arial, Sans-serif;
+	background: #21295c;
+	color: #cf5c36;
+}
+
+.contenedor {
+	width: 300px;
+	margin: 20px;
+	background: #eee5e9;
+	padding: 20px;
+}
