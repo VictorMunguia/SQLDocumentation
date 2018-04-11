@@ -20,6 +20,20 @@ console.log(arregloEjemplo);
 
 //Metodos inversos de push y unshift
 
-arregloEjemplo.shift()//Este metodo elimina el primer objeto del arreglo
-console.log("Elimina el primer objeto del arreglo")
+arregloEjemplo.shift();//Este metodo elimina el primer objeto del arreglo
+console.log("Elimina el primer objeto del arreglo");
 console.log(arregloEjemplo);
+
+
+arregloEjemplo.pop();//Nos permite eliminar el ultimo objeto del arreglo
+console.log("Elimina el ultimo objeto del arreglo");
+console.log(arregloEjemplo);
+
+console.log("--------------Iteracion de un arrelgo----------------")
+//Iteracion de los arreglos
+
+var ArregloParaIteracion = [1,2,3]
+for(var a = 0; a<ArregloParaIteracion.length; a++){
+    console.log("Pocision numero " + a + " del arreglo." )
+    console.log(ArregloParaIteracion[a]);
+}
