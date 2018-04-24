@@ -27,3 +27,6 @@ numero_residuo_2 = 5
 
 puts "Resta n1 % n2"
 puts numero_residuo_1 % numero_residuo_2
+
+puts "Potencia de un numero (En este caso es a la dos, el numero al final define eso)"
+puts numero_2 ** 2
