@@ -1,0 +1,32 @@
+.colorTextNav{
+  color: #FFFF !important;
+}
+
+.fondo1{
+  height: 400px;
+  background-color: blue;
+}
+
+.fondo2{
+  height: 400px;
+  background-color: yellow;
+}
+
+.fondo3{
+  height: 400px;
+  background-color: pink;
+}
+
+.normalColor{
+  background-color: rgba(0, 0, 0,0.0) !important;
+  box-shadow: 0 10px 6px -11px #777;
+}
+
+.normalColor{
+  transition: all 1s ease;
+}
+.CambioColorNav{
+  background-color: #ff8f07 !important;
+  height: 60px !important;
+  box-shadow: 0 10px 6px -6px #777;
+}
