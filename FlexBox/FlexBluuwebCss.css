@@ -1,0 +1,56 @@
+*{
+  margin: 0;
+  padding: 0;
+  /*box-sizing espesifica el borde que debe tener las cajas.*/
+  -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.contenedor{
+  width: 80%;
+	height: 500px;
+	background: #FF5C29;
+	margin: 50px auto;
+
+  /*display flex nos permite liberar las cajas y poder modificarlas*/
+  display: flex;
+
+
+  /*Esto nos permite ordenar las cajas de izquierda a derecha y emepzando en el lado izquierdo de la pantalla*/
+  /*flex-direction: row;*/
+
+
+  /*Acomoda las cajas de derecha a izquierda y orientados al lado derecho de la pantalla*/
+  /*flex-direction: row-reverse;*/
+
+
+  /*Ordena las cajas de arriba a abajo*/
+  /*flex-direction: column;*/
+
+
+  /*Flex nos permite en caso de que los elementos sean mas grandes que el contenedor, reducir las cajas al tamaño en la que puedan caber sin
+  problema, con flex-wrap: wrap nos permite pasar a la siguiente columna para que las cajas puedan caber, por dejefecto flex nos pone la propiedad
+  en nowrap*/
+  flex-direction: row;
+  flex-wrap: wrap;
+
+
+  /*Nos permite alinear los elementos al lado derecho pero sin invertilos con flex-end, con center pues se puede centrar los elementos, con
+  space-bewthen, pero si se quiere que ocupen el mismo espacio se pone space-auron*/
+  justify-content: space-around;
+
+
+  /*Nos permite posicionar los elementos arriba o abajo, con center nos los pone en medio*/
+  align-items: center;
+}
+
+.hijo{
+  background: #00B285;
+	width: 200px;
+	height: 100px;
+	color:#fff;
+	margin: 30px;
+	padding: 20px;
+	font-size: 40px;
+	text-align: center;
+}

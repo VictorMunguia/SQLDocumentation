@@ -20,6 +20,7 @@
 .normalColor{
   background-color: rgba(0, 0, 0,0.0) !important;
   box-shadow: 0 10px 6px -11px #777;
+  height: 55px !important;
 }
 
 .normalColor{
@@ -27,6 +28,6 @@
 }
 .CambioColorNav{
   background-color: #ff8f07 !important;
-  height: 60px !important;
+  height: 70px !important;
   box-shadow: 0 10px 6px -6px #777;
 }
