@@ -22,27 +22,11 @@ Modulo(Nos devuelve el residuo) = %
 console.log(edad - punto_Flotante);
 console.log(edad * punto_Flotante);
 
-var Residuo = edad % 3;//De esta manera metemos en una variable el residuo de la division edad entre 3
-console.log(Residuo);
+var Residuo = edad % 3;//De esta forma almacenamos el residuo en una variable
+console.log(Residuo); //Imprimimos el residuo de la division entre edad entre 3
 
-function esPar(numero){ //Esta funcion nos retornara verdadero o falso dependiendo si el numero que metamos deja un residuo o no
-    if(numero%2 == 0){
-        return true;
-    }
-    else{
-        return false;
-    } 
+
+function EsParONo (numero) {
+	
+	return
 }
-
-
-console.log(esPar(2));//El valor dos entre dos deja un residuo de 0 por lo que el valor va a retornar verdadero
-
-
-//Javascript cuenta con unas librerias para operaciones aritmeticas mas complejas.
-
-console.log(Math.pow(2,3));//pow nos permite elevar un numero a n potencia, en este caso elevamos 2 a la tercera potencia
-console.log(Math.round(0.6));//round nos permite redondear valores al entero mas cercano
-console.log(Math.ceil(0.6))//Nos redondea siempre al entero que esta hacia arriba
-console.log(Math.floor(0.6))//Siempre redondea hacia abajo
-console.log(Math.PI)//Devuelve valor de pi
-console.log((Math.random() * 10) + 1)//Devuelve valor aleatorio pero valores por debajo del 0, por lo que hay que multiplicar por 10 para que nos de enteros
