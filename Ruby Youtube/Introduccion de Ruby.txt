@@ -1,0 +1,7 @@
+-Ruby es un lenguaje de programacion interpretado, no se compila si no que la instalacion contiene un interprete que lee linea por linea.
+
+-No es necesario poner puntos y comas al final de cada linea de codigo.
+
+-Es de tipado dinamico, no es necesario deefinir el tipo de variable, por lo que puedes almacenar diferentes tipos de objeto en una variable.
+
+-Todo en ruby es un objeto.
