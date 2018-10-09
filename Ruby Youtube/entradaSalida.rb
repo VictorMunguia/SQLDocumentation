@@ -5,5 +5,9 @@
 puts "Ingresa tu nombre" 
 
 nombre = gets
+#chomp permite quitar el ultimo caracter de un string
+nombre = nombre.chomp
 
 puts "Hola #{nombre}"
+
+puts "#{nombre} tiene #{nombre.length} letras"
